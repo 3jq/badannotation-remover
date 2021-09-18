@@ -13,10 +13,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.ow2.asm:asm:7.1'
-    implementation 'org.ow2.asm:asm-tree:7.1'
-    implementation 'org.ow2.asm:asm-commons:7.1'
-    implementation 'org.ow2.asm:asm-util:7.1'
+    compile 'org.ow2.asm:asm:7.1'
+    compile 'org.ow2.asm:asm-tree:7.1'
+    compile 'org.ow2.asm:asm-commons:7.1'
+    compile 'org.ow2.asm:asm-util:7.1'
 
     compile("com.google.guava:guava:19.0")
 
@@ -39,7 +39,7 @@ task withDependencies(type: Jar) {
                 'Main-Class': 'wtf.fuckyou.badannotationremover.BACRemover'
     }
 
-    baseName = project.name + '-all'
+    baseName = project.name + '-withDependencies'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
